@@ -1,0 +1,26 @@
+{
+  "name": "task-managemnet-app",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "vite",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "pinia": "^2.1.7",
+    "vue": "^3.4.21",
+    "vue-router": "^4.3.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.4",
+    "autoprefixer": "^10.4.19",
+    "axios": "^1.6.8",
+    "laravel-vue-pagination": "^4.1.3",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.3",
+    "vue3-toastify": "^0.2.1"
+  }
+}
