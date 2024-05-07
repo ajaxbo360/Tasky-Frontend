@@ -1,0 +1,18 @@
+version: '3.8'
+networks:
+  vue:
+services:
+  vue:
+    build:
+      context: .
+      dockerfile: dockerfile
+    container_name: vue-site
+    ports:
+      - "3030:3030"
+    depends_on:
+      - php
+      - nginx
+    networks:
+      - vue
+
+  
