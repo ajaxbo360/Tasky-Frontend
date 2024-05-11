@@ -69,7 +69,7 @@ import LoadingButton from "../Shared/LoadingButton.vue";
 import useTaskById from "@/composables/useTaskById";
 import useTaskEdit from "@/composables/useTaskEdit";
 import { useRouter } from "vue-router";
-import { onMounted, ref } from "vue";
+import { onMounted } from "vue";
 
 // Initialize router
 const router = useRouter();

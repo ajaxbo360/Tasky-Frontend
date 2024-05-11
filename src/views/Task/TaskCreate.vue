@@ -64,10 +64,20 @@ import TextareaInput from "../Shared/TextareaInput.vue";
 import Layout from "../Shared/Layout.vue";
 import SelectInput from "../Shared/SelectInput.vue";
 import LoadingButton from "../Shared/LoadingButton.vue";
-import { reactive } from "vue";
+import { reactive, watch } from "vue";
 import useTaskCreation from "../../composables/useTaskCreation";
 
-const { error, loading, store, taskCreation } = useTaskCreation();
+const { error, loading, store } = useTaskCreation();
+
+// Watch the loading state and clear fields when loading becomes true
+watch(loading, (newValue) => {
+  if (newValue === true) {
+    task.name = "";
+    task.description = "";
+    task.due_date = "";
+    task.status = ""; // Assuming status can also be cleared
+  }
+});
 
 const task = reactive({
   name: null,

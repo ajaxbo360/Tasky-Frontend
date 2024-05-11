@@ -154,11 +154,9 @@ const date = ref(["created_at", "updated_at", "due_date"]);
 const { update } = useTaskEdit();
 const { filter, filterdedTasks } = useFilterByStatus();
 const { sortBy, sortedTasks } = useSortBy();
-console.log(tasks);
 
 watch(status, async (newStatus) => {
   await fetchTasks(currentPage.value, newStatus);
-  console.log(newStatus);
 });
 watch(date, async (newDate) => {
   await fetchTasks(newDate);

@@ -6,23 +6,19 @@ export default function useTasks() {
   let tasks = ref([]);
   const error = ref(null);
 
-  const fetchTasks = async (
-    page = 1,
-    status = "New",
-    sortBy = "created_at"
-  ) => {
+  const fetchTasks = async (page = 1, status = "", sortBy = "created_at") => {
     loading.value = true;
     try {
-      const response = await http().get(
-        `/api/tasks?page=${page}&status=${status}&sort_by=${sortBy}`,
-        {
-          headers: {
-            Authorization: `Bearer ${JSON.parse(
-              localStorage.getItem("token")
-            )}`,
-          },
-        }
-      );
+      let url = `/api/tasks?page=${page}&sort_by=${sortBy}`;
+      if (status !== "") {
+        url += `&status=${status}`;
+      }
+
+      const response = await http().get(url, {
+        headers: {
+          Authorization: `Bearer ${JSON.parse(localStorage.getItem("token"))}`,
+        },
+      });
 
       tasks.value = response.data;
     } catch (err) {
